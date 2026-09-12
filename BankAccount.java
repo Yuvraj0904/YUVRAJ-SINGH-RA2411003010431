@@ -1,23 +1,14 @@
-public class BankAccount {
-    private double balance;
-
+public class BankAccount extends Account implements Withdrawable {
     public BankAccount() {
-        this.balance = 0.0;
+        super();
     }
 
     public BankAccount(double initialBalance) {
-        this.balance = initialBalance;
+        super(initialBalance);
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
+    @Override
     public void withdraw(double amount) {
-        balance -= amount;
-    }
-
-    public double getBalance() {
-        return balance;
+        deposit(-amount);
     }
 }
